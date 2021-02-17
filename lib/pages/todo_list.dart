@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:rivepod_practice2_app/entities/todo.dart';
-import 'package:rivepod_practice2_app/pages/Widget/build_list.dart';
+import 'package:rivepod_practice2_app/pages/build_list.dart';
 import 'package:rivepod_practice2_app/pages/todo_list_page.dart';
 
 class TodoList extends HookWidget {
