@@ -4,7 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:rivepod_practice2_app/controllers/todo_controller.dart';
 import 'package:rivepod_practice2_app/entities/todo.dart';
-import 'package:rivepod_practice2_app/todo_list_page.dart';
+import 'package:rivepod_practice2_app/pages/todo_list_page.dart';
 
 class BuildList extends HookWidget {
   @override
@@ -20,9 +20,11 @@ class BuildList extends HookWidget {
     );
   }
 
+  //スライドして削除するDismissibleパッケージ
   Widget _dismissible(Todo todo, BuildContext context) {
     return Dismissible(
       key: UniqueKey(),
+      //確認のダイアログを出す
       confirmDismiss: (direction) async {
         final confirmResult =
             await _showDeleteConfirmDialog(todo.title, context);
@@ -35,6 +37,8 @@ class BuildList extends HookWidget {
           backgroundColor: Colors.grey,
         );
       },
+      //スライド出来る方向の指定
+      direction: DismissDirection.startToEnd,
       background: Container(
         alignment: Alignment.centerLeft,
         color: Colors.red,
@@ -46,6 +50,7 @@ class BuildList extends HookWidget {
           ),
         ),
       ),
+      //TodoをDismissibleで囲んでいる。
       child: _todoItem(todo, context),
     );
   }
@@ -63,6 +68,7 @@ class BuildList extends HookWidget {
             fontSize: 16,
           ),
         ),
+        //onTapで更新画面に遷移
         onTap: () {
           _transitionToNextScreen(context, todo: todo);
         },
