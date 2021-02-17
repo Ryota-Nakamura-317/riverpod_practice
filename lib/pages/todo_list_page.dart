@@ -6,7 +6,7 @@ class Const {
   static const routeNameUpsertTodo = 'upsert-todo';
 }
 
-class TodoListView extends StatelessWidget {
+class TodoListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
